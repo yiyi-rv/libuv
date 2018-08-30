@@ -7,7 +7,7 @@ rm -rf $report_out
 
 apt install -y automake libtool
 sh autogen.sh
-./configure CC=kcc LD=kcc CFLAGS="-fissue-report=$json_out"
+./configure CC=kcc LD=kcc --enable-shared=no CFLAGS="-fissue-report=$json_out"
 make
 make check
 rv-html-report $json_out -o $report_out
